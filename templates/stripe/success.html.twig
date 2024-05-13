@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement effectué avec succès{% endblock %}
+
+{% block body %}
+    <div {{ react_component('StripeSuccess', { 'amountTotal': amountTotal })}}></div>
+{% endblock %}
