@@ -3,12 +3,17 @@ import { Product, getProducts } from "../api/productApi";
 
 export default function useProducts() {
     const [products, setProducts] = useState<Product[]>([]);
+    const [name, setName] = useState<string>("");
+    const [page, setPage] = useState<number>(1);
+    const [totalPage, setTotalPage] = useState<number>(1);
+    const [price, setPrice] = useState<string>("");
 
     useEffect(() => {
-        getProducts().then(res => {
-            setProducts(res)
+        getProducts(page, name, price).then(res => {
+            setProducts(res.products);
+            setTotalPage(res.totalPage);
         });
-    }, []);
+    }, [page, name, price]);
 
-    return products;
+    return { products, page, totalPage, setPage, setName, setPrice };
 }
