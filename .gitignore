@@ -1,0 +1,11 @@
+/vendor
+/node_modules
+/public/bundles
+/public/bundles/easyadmin
+/public/bundles/images
+/public/images
+/public/build
+/var
+/config
+.env
+.gitingnore
